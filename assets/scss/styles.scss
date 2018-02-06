@@ -1,0 +1,72 @@
+@import "compass/css3/box-sizing";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/utilities/general/clearfix";
+@import "../../node_modules/susy/sass/susy";
+
+@import "common/variables";
+@import "mixins/fonts";
+
+@import "common/reset";
+@import "common/fonts";
+@import "common/type";
+@import "common/layout";
+@import "common/footer";
+@import "common/forms";
+@import "common/buttons";
+
+.footer-wrapper {
+    width: 980px;
+    max-width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+.form-container {
+    max-width: 640px;
+    height: auto;
+    margin: 120px auto;
+    padding: 28px 35px;
+    background-color: white;
+    border-radius: 5px;
+    @include box-shadow(0 2px 2px 2px rgba(0, 0, 0, .15),
+                        0 7px 12px rgba(0, 0, 0, .25));
+}
+
+.form__header {
+    text-align: center;
+    margin-bottom: 42px;
+
+    span {
+        @include light(16px, 22px);
+        color: $inaccent-text-color;
+    }
+
+    strong {
+        @include bold(24px, 36px);
+    }
+}
+
+.activities-total-cost {
+    display: inline-block;
+    padding: 0 21px;
+    @include light(16px, 48px);
+    border: 1px dotted $activities-info-branding;
+    border-radius: 5px;
+    background-color: transparentize($fill-background-color, .7);
+
+    .cost {
+        font-weight: 700;
+        color: $activities-info-branding;
+    }
+}
+
+.info {
+    margin-top: 35px;
+}
+
+.payment-info {
+    @include light(16px, 28px);
+    color: $inaccent-text-color;
+}

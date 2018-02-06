@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full Stack Conference</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="form-container">
+            <header class="form__header">
+                <span>Register for</span><br/>
+                <strong>Full Stack Conference</strong>
+            </header>
+            <form action="#" class="form" id="registerForm">
+                <fieldset class="form__group basic-info">
+                    <legend class="form__group-legend">Basic Info</legend>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="text" name="name" id="name" class="form__input" data-active-placeholder="true"
+                                data-val="true" autofocus />
+                            <span class="active-placeholder">Name</span>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="email" name="email" id="email" class="form__input" data-active-placeholder="true" 
+                                data-val="true" />
+                            <span class="active-placeholder">Email</span>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control form__control_select">
+                            <select id="jobRole" name="jobRole" class="form__input form__input_select">
+                                <option value="" selected disabled hidden>Choose Your Job Role</option>
+                                <option value="1">Full Stack JS Developer</option>
+                                <option value="2">Front End Developer</option>
+                                <option value="3">Back End Developer</option>
+                                <option value="4">Designer</option>
+                                <option value="5">Student</option>
+                                <option value="6">Other</option>
+                            </select>
+                            <span class="active-placeholder">Job Role</span>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="text" name="other" id="other" class="form__input" data-active-placeholder="true" />
+                            <span class="active-placeholder">Your Job Role</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__group t-shirt-info">
+                    <legend class="form__group-legend">T-Shirt Info</legend>
+
+                    <div class="form__control-container form__control-container-33">
+                        <div class="form__control form__control_select">
+                            <select id="size" name="size" class="form__input form__input_select">
+                                <option value="" selected disabled hidden>Choose Size</option>
+                                <option value="1">S</option>
+                                <option value="2">M</option>
+                                <option value="3">L</option>
+                                <option value="4">XL</option>
+                            </select>
+                            <span class="active-placeholder">Size</span>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container form__control-container-33">
+                        <div class="form__control form__control_select">
+                            <select id="design" name="design" class="form__input form__input_select">
+                                <option value="" disabled selected hidden>Choose Theme</option>
+                                <option value="1">Theme - JS Puns</option>
+                                <option value="2">Theme - I &hearts; JS</option>
+                            </select>
+                            <span class="active-placeholder">Desing</span>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container form__control-container-33">
+                        <div class="form__control form__control_select">
+                            <select id="color" name="color" class="form__input form__input_select">
+                                <option value="" disabled selected hidden data-theme="all">Choose Color</option>
+                                <option value="" disabled selected hidden data-theme="empty">Please select a T-shirt theme</option>
+                                <option value="1" data-theme="1">Cornfulaer Blue</option>
+                                <option value="2" data-theme="1">Dark Slate Grey</option>
+                                <option value="3" data-theme="1">Goel</option>
+                                <option value="4" data-theme="2">Tomato</option>
+                                <option value="5" data-theme="2">Steel Blue</option>
+                                <option value="6" data-theme="2">Dim Grey</option>
+                            </select>
+                            <span class="active-placeholder">Color</span>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <fieldset class="form__group activities-info" data-val="true">
+                    <legend class="form__group-legend">Register for Activities</legend>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-1" id="activity-1" class="form__checkbox" 
+                                data-cost="200" />
+                            <label for="activity-1" class="form__checkbox-label">Main Conference - $200</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-2" id="activity-2" class="form__checkbox" 
+                                data-cost="100" 
+                                data-time="Tuesday 9am-12pm" />
+                            <label for="activity-2" class="form__checkbox-label">JavaScript Frameworks Workshop - Tuesday 9am-12pm - $100</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-3" id="activity-3" class="form__checkbox"
+                                data-cost="100"
+                                data-time="Tuesday 1pm-4pm" />
+                            <label for="activity-3" class="form__checkbox-label">JavaScript Libraries Workshop - Tuesday 1pm-4pm - $100</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-4" id="activity-4" class="form__checkbox"
+                                data-cost="100"
+                                data-time="Tuesday 9am-12pm" />
+                            <label for="activity-4" class="form__checkbox-label">Express Workshop - Tuesday 9am-12pm - $100</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-5" id="activity-5" class="form__checkbox"
+                                data-cost="100"
+                                data-time="Tuesday 1pm-4pm" />
+                            <label for="activity-5" class="form__checkbox-label">Node.js Workshop - Tuesday 1pm-4pm - $100</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-6" id="activity-6" class="form__checkbox"
+                                data-cost="100"
+                                data-time="Wednesday 9am-12pm" />
+                            <label for="activity-6" class="form__checkbox-label">Build Tools Workshop - Wednesday 9am-12pm - $100</label>
+                        </div>
+                    </div>
+
+                    <div class="form__control-container">
+                        <div class="form__control">
+                            <input type="checkbox" name="activity-7" id="activity-7" class="form__checkbox"
+                                data-cost="100"
+                                data-time="Wednesday 1pm-4pm" />
+                            <label for="activity-7" class="form__checkbox-label">NPM Workshop - Wednesday 1pm-4pm - $100</label>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <fieldset class="form__group payment-info">
+                    <legend class="form__group-legend">Payment Info</legend>
+
+                    <div class="form__control-container">
+                        <div class="form__control form__control_select">
+                            <select id="paymentMethod" name="paymentMethod" class="form__input form__input_select" data-val="true">
+                                <option value="" selected default hidden>Choose Payment Method</option>
+                                <option value="1">Credit Card</option>
+                                <option value="2">PayPal</option>
+                                <option value="3">Bitcoin</option>
+                            </select>
+                            <span class="active-placeholder">I'm going to pay with</span>
+                        </div>
+                    </div>
+
+                    <div class="credit-card-info info" data-method="1">
+                        <div class="clearfix">
+                            <div class="form__control-container form__control-container-33">
+                                <div class="form__control">
+                                    <input type="text" name="cardNumber" id="cardNumber" class="form__input" data-active-placeholder="true" 
+                                        data-val="true" />
+                                    <span class="active-placeholder">Card Number</span>
+                                </div>
+                            </div>
+        
+                            <div class="form__control-container form__control-container-33">
+                                <div class="form__control">
+                                    <input type="text" name="cardZipCode" id="cardZipCode" class="form__input" data-active-placeholder="true" 
+                                        data-val="true" />
+                                    <span class="active-placeholder">Zip Code</span>
+                                </div>
+                            </div>
+        
+                            <div class="form__control-container form__control-container-33">
+                                <div class="form__control">
+                                    <input type="text" name="cardCVV" id="cardCVV" class="form__input" data-active-placeholder="true" 
+                                        data-val="true" />
+                                    <span class="active-placeholder">CVV</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <div class="form__control-container form__control-container-66">
+                                <div class="form__control form__control_select">
+                                    <select id="expirationMonth" name="expirationMonth" class="form__input form__input_select">
+                                        <option value="1">1 - Janyary</option>
+                                        <option value="2">2 - February</option>
+                                        <option value="3">3 - March</option>
+                                        <option value="4">4 - April</option>
+                                        <option value="5">5 - May</option>
+                                        <option value="6">6 - June</option>
+                                        <option value="7">7 - July</option>
+                                        <option value="8">8 - August</option>
+                                        <option value="9">9 - September</option>
+                                        <option value="10">10 - October</option>
+                                        <option value="11">11 - November</option>
+                                        <option value="12">12 - December</option>
+                                    </select>
+                                    <span class="active-placeholder">Expiration Month</span>
+                                </div>
+                            </div>
+    
+                            <div class="form__control-container form__control-container-33">
+                                <div class="form__control form__control_select">
+                                    <select id="expirationYear" name="expirationYear" class="form__input form__input_select">
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                    </select>
+                                    <span class="active-placeholder">Expiration Month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="paypal-info payment-info info" data-method="2">
+                        <span>
+                            If you selected the PayPal option we'll take you to
+                            PayPal's site to set up your billing information, when
+                            you click "Register" below.
+                        </span>
+                    </div>
+
+                    <div class="bitconin-info payment-info info" data-method="3">
+                        <span>
+                            If you selected the Bitcoin option we'll take you
+                            to the Coinbase site to set up your billing information.
+                            One to the nature of exchanging Bitcoin, all Bitcoin
+                            transactions will be final.
+                        </span>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btnRegister">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./dist/app.js"></script>
+</body>
+</html>
