@@ -1,18 +1,23 @@
 # Build an Interactive Form
 
-В репозитории представлен пример реализации третьего проекта программы FSJS Treehouse. Все скрипты находятся в файле *src/app.js* (для обеспечения поддержки большего количества броузеров я использую Babel, однако из-за того, что я стараюсь использовать как можно меньше экспериментальных технологий транскомпилированная версия скритов так же легко читается человеком и находиться по в файле *dist/app.js*).
+An example of the third project of the FSJS Treehouse program is presented in the repository. 
+All scripts are in the file * src / app.js * (to support more browsers I use Babel, however, as far as I try to use as few experimental technologies as possible, 
+the transcoded version of the scripts is easy to read and is in file * dist / app.js *).
 
-*Да, в этот, как и во все прошлые и будущие разы верстку и стили я писал сам. Я не скачивал предложенных файлов и не искал выполненных работ на GitHub. За оригинальность данного кода я ручаюсь. Я делаю это не из вредности или по тому, что "нагуглил" подходящие варианты. Я разрабатываю веб-приложения очень давно, у меня сложился свой стиль и для меня сейчас уже труднее написать стили на чистом CSS, чем на SCSS и т. д. (отвечая на возможные претензии Treehouse).*
+There is nothing special in the project. I use jQuery, connected on CDN. 
+In the script interactivity is added to the blocks of information in the form. In the end before calling submit 
+validations are added. Validation is rendered in a separate place in the file for the reason that in a real
+ project you probably do not want to invent a wheel and might use something like * jquery.validation *. For more details pls see the comments.
 
-В проекте нет ничего особенного. Я использую jQuery, подключенную по CDN. В скрипте интерактивность добавляется по блокам информации в форме. В конце, перед вызовом submit, добавляются валидации. Валидации вынесенеы в отдельное место в файле по той причине, что в реальном проекте вам вероятно не захочется накручивать велосипед, и вы используете что-то типо *jquery.validation* и будете счастливы. Дополнительную информацию вы найдете в комментариях. 
 
-##### Я уверен, что моя верстка незначительным образом отличается от предложенной мастерами с Treehouse и выражаю глубокую надежду на адекватный ревью.
+##### I'm sure that my layout is slightly different from the proposed by the masters from Treehouse and I express a deep hope for an adequate review.
 
-And as usual, to start a project the following commands might be used:
+To run the project  one can start index.html file in its browser
+or 
+use the following commands:
 ```shell
     npm install
     npm start
 ```
-Но вы так же без проблем можете открыть файл index.html в своем браузере, если запустить npm для вас невозможно по политическим, религиозным причинам или по причине низкой квалификации и отсутствию воображения.
 
 ### I hope you will enjoy it. Max Eremin

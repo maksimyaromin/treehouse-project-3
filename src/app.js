@@ -12,31 +12,26 @@ const activePlaceholder = (element) => {
 {
     $(document).ready(() => {
 
-        /* Включение активных плэйсхолдеров для текстовых полей. 
-           Если ДжаваСкрипт отключен, то плэйсхолдеры будут помещены
-           на свое место при помощий CSS 
+        /* Placeholders activating for text fields.
+		   Whether JavaScript is disabled CSS will set placeholders 
+		   to its place.		   
         */
         $(`[data-active-placeholder="true"]`).each((index, elemetnt) => {
             activePlaceholder($(elemetnt));
         });
 
-        /* Скрипты для Basic */
+        /* Scripts for Basic */
         const basicContext = $(".basic-info");
-        // Скрыть поле иной джоб роли
+        // Hide other job role field
         const otherInputContainer = basicContext.find(`input[name="other"]`)
             .closest(".form__control-container")
             .hide();
         const jobRoleSelect = basicContext.find(`select[name="jobRole"]`);
 
-        // ВАЖНО: для автофокуса на поле имя я использовал HTML5 атрибут autofocus.
-        // Если вы не жалуете HTML5, то прошу меня помиловать за то, что не бегу
-        // за мастерами по пятам, а раскомментировать нижепредставленную строчку
-        // джаваскрипта и удалить autofocus из разметки. Но если королям не снизойти
-        // до плебса, то так и быть - отвергните мой проект и я сделаю это для вас
-        // basicContext.find(`[name="name"]`).focus();
-
-        /* Функция, которая отвечает за видимость поля иной джоб роли в зависимости от выбора
-           в джоб роль селект
+        // To focus on name field I used HTML5 attribute autofocus.
+      
+        /* function, which makes other job role field visible
+		   depending on job role select.		   
         */
         const toggleOther = (element) => {
             /*
@@ -54,16 +49,15 @@ const activePlaceholder = (element) => {
                 otherInputContainer.hide();
             }
         };
-        // Обработчик события чэндж на джоб роль селекте
+        // Change event-handler on job role select
         jobRoleSelect.on("change", e => toggleOther($(e.target)));
-        /* На всякий случай при инициализации приложения вызвать функцию
-           проверки выбранной роли (если вдруг значение Озер будет по 
-           умолчанию) 
+        /* Just in case while initializing an application start selected job role check function. 
+		  (in case Other in a default value) 
         */
         toggleOther(jobRoleSelect);
 
-        /* Скрипты для T-Shirt */
-        // Выбираем необходимые для работы элементы
+        /* Scripts for T-Shirt */
+        // Choose elements which we need for work. 
         const tShirtContext = $(".t-shirt-info");
         const colorSelect = tShirtContext.find(`select[name="color"]`);
         const colorSelectContainer = colorSelect.closest(".form__control-container")
@@ -71,8 +65,8 @@ const activePlaceholder = (element) => {
         const colors = colorSelect.find("option");
         const themeSelect = tShirtContext.find(`select[name="design"]`);
         
-        /* Функция, которая отвечает за наполнения колор селекта и его видимость
-           в зависимости от выбора дизайна футболки 
+        /* function which is responsible for color select content and its visibility
+           depending on T-shirt design selected. 
         */
         const toggleColor = (element) => {
             /*
@@ -97,16 +91,15 @@ const activePlaceholder = (element) => {
                 colorSelectContainer.hide();
             }
         };
-        // Обработчик события чэндж для селекта дизайна футболки
+        // Change event-handler for T-shirt design select.
         themeSelect.on("change", e => toggleColor($(e.target)));
-        /* На всякий случай при инициализации приложения вызвать функцию
-           проверки доступности цветов (если вдруг по умолчанию будет выбран
-           какой-то дизайн) 
+        /* Just in case while initializing an application start color availability check function 
+           (in case when default design is selected) 
         */
         toggleColor(themeSelect);
 
-        /* Скрипты для Activities */
-        // Выбираем необходимые для работы элементы
+        /* Scripts for Activities */
+        // Choose elements which we need for work
         const activitiesContext = $(".activities-info");
         const totalElement = $(`
             <div class="activities-total-cost">
@@ -116,7 +109,7 @@ const activePlaceholder = (element) => {
         `).appendTo(activitiesContext).hide();
         let total = 0;
 
-        // Выводим или скрываем поле с общей суммой на выбранные активитис
+        // Enable or disable field with total sum on selected activities 
         const toggleTotal = () => {
             const totalCost = totalElement.find(".cost");
             totalCost.text(`$${total}`);
@@ -125,7 +118,7 @@ const activePlaceholder = (element) => {
                 : totalElement.hide();
         };
 
-        // Выбор чекбоксов из ДОМ и обработка события чэндж
+        // Choosing check-boxes from DOM and change event handler
         const activities = activitiesContext.find(`input[type="checkbox"]`);
         activities.on("change", (e) => {
             const target = $(e.target);
@@ -137,7 +130,7 @@ const activePlaceholder = (element) => {
                 : total -= cost; 
             toggleTotal();
 
-            // Если активити пересекается по времени с другими активити то их задизэйблить
+            // Disable activities which are time-crossing with another selected activities. 
             const time = target.data("time");
             activities.each((item, element) => {
                 element = $(element);
@@ -147,13 +140,13 @@ const activePlaceholder = (element) => {
             });
         });
 
-        /* Скрипты для Payment */
-        // Выбираем необходимые для работы элементы
+        /* Scripts for Payment */
+        // Choose elements which we need for work
         const paymentContext = $(".payment-info");
         const methods = paymentContext.find(".info").hide();
         const methdosSelect = paymentContext.find(`select[name="paymentMethod"]`);
 
-        // Выбираем метод оплаты
+        // Choose payment method 
         const toggleMethodInfo = (element) => {
             /*
                 Credit Card = 1
@@ -171,9 +164,9 @@ const activePlaceholder = (element) => {
         methdosSelect.on("change", e => toggleMethodInfo($(e.target)));
         toggleMethodInfo(methdosSelect);
 
-        // Дабавление специальных методов валидации на поля формы
+        // Add special validation methods on form fields
         const form = $("#registerForm");
-        // ВАЛИДАТОР: обязательность выбора, осуществляется по наличию у поля значения
+        // VALIDATOR: Choice obligation, is performed by field value featuring
         const required = (input, messenge = "Field is required") => {
             return input.val() 
                 ? {
@@ -184,7 +177,7 @@ const activePlaceholder = (element) => {
                     errorName : "required" 
                 };
         };
-        // ВАЛИДАТОР: адрес электронной почты, осуществляется по регулярному выражению
+        // VALIDATOR: e-mail address, is performed by regular expressions
         const email = (input) => {
             var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
             return regex.test(input.val().toLowerCase()) 
@@ -196,7 +189,7 @@ const activePlaceholder = (element) => {
                     errorName: "email"
                 };
         };
-        // ВАЛИДАТОРЫ: номер карты, индекс и свв, осуществляется по регулярному выражению
+        // VALIDATOR: card number, zip code and cvv, is performed by regular expressions
         const cardNumber = (input) => {
             var regex = /^[0-9]{13,16}$/;
             return regex.test(input.val().toLowerCase()) 
@@ -230,7 +223,7 @@ const activePlaceholder = (element) => {
                     errorName: "cvv"
                 };
         };
-        // СПЕЦИАЛЬНЫЙ ВАЛИДАТОР выбронных активити
+        // SPECIAL VALDATOR of selected activities 
         const checkActivities = (container) => {
             let valid = false;
             activities.each((idx, checkbox) => {
@@ -251,8 +244,8 @@ const activePlaceholder = (element) => {
             }
             return valid;
         };
-        /* Универсальный метод, который отображает или скрывает ошибку
-           в зависимости от результатов валидатора
+        /* Generic method which displays or hides error message 
+           depending on validation result 
         */
         const toggleError = (input, { messenge, errorName }) => {
             const container = input.closest(".form__control-container");
@@ -261,7 +254,7 @@ const activePlaceholder = (element) => {
                 input.data("error", false);
                 container.find(`.form__control-validation-messenge${all ? "" : `.error_${errorName}`}`).remove();
             };
-            // Если элемент не видим (скрыт) - то валидировать не нужно
+            // If an element is disabled (hidden) - there is no validation
             if(!input.is(":visible")) {
                 clear();
                 return true;
@@ -281,20 +274,19 @@ const activePlaceholder = (element) => {
             } 
             return false;
         };
-        // Переместиться на первую ошибку
+        // Move to the fist error 
         const scrollToFirstError = () => {
             $("html, body").animate({
                 scrollTop: $(".form__control-validation-messenge").eq(0).offset().top - 70
             }, 500);
         };
 
-        /* Установка валидаций на все заявленные по условиям задачи поля: а именно имени,
-           адреса электронной почты, номера карты, индекса и свв, активитис а так же одного 
-           не заявленного поля - выбран ли метод оплаты?
-           Все валидаторы работают как после нажатия кнопки отправить, так и в режиме реального времени.
-           Для срабатывания по кнопке используется трюк с data-атрибутом. Валидаторы навешиваются в конкретном
-           месте для того, чтобы в случае реального использования легко можно было бы перейти на проверенный
-           плагин валидации, а не использовать велосипед.
+        /* Validation is used for all fields required by task : i.e.,
+           e-mail addresses, card numbers, zip codes and cvv, activities and also one not required by task field 
+           - whether the payment method is selected?
+           All validations work online as well as on send button click.
+           Button is triggered by trick with data-attribute. Validation is being set in specified place
+           for easy transfer to  sure plugins in case of real usage to avoid reinventing a wheel.
         */
         form.find(`[name="name"]`).on("input", e => {
             const input = $(e.target);
@@ -336,7 +328,7 @@ const activePlaceholder = (element) => {
             e.preventDefault();
             let valid = true;
 
-            // На все обязательные для проверки поля в разметке был навешен специальный data-атрибут
+            // All required for validation fields where marked with special data-attribute
             form.find(`[data-val="true"]`).each((idx, element) => {
                 element = $(element);
                 const validator = element.data("custom-validation");
@@ -345,12 +337,12 @@ const activePlaceholder = (element) => {
                 }
             });
 
-            // Если форма валидна
+            // If the form is valid
             if(valid) {
-                // отправить форму
+                // send the form
                 form.submit();
             } else {
-                // если не валидна - скролл на первую ошибку
+                // if not valid - scroll to the first error 
                 scrollToFirstError();
             }
         });
